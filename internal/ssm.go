@@ -221,7 +221,7 @@ func FindInstances(ctx context.Context, cfg aws.Config) (map[string]*Target, err
 							break
 						}
 					}
-					table[fmt.Sprintf("%s\t(%s)", name, *inst.InstanceId)] = &Target{
+					table[fmt.Sprintf("%s\t(%s)(%s)", name, *inst.InstanceId, *inst.PrivateIpAddress)] = &Target{
 						Name:          aws.ToString(inst.InstanceId),
 						PublicDomain:  aws.ToString(inst.PublicDnsName),
 						PrivateDomain: aws.ToString(inst.PrivateDnsName),
